@@ -1,0 +1,9 @@
+modReferences = ShaderLib
+author = Quine
+version = 1.0
+displayName = Dye Hard
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
+hideCode = false
+includeSource = true
+languageVersion = 6
+includePDB = true

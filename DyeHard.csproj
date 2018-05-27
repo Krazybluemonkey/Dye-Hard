@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8298EAB6-0586-4BDA-9483-83624B66B13A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DyeHard</RootNamespace>
+    <AssemblyName>DyeHard</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="DyeHard.cs" />
+    <Compile Include="DyeHardPlayer.cs" />
+    <Compile Include="Dyes\Acid\AcidDyes.cs" />
+    <Compile Include="Dyes\andBlack\andBlackDyes.cs" />
+    <Compile Include="Dyes\andSilver\andSilverDyes.cs" />
+    <Compile Include="Dyes\Aura\AuraDyes.cs" />
+    <Compile Include="Dyes\Bright\BrightDyes.cs" />
+    <Compile Include="Dyes\Colored\ColoredDyes.cs" />
+    <Compile Include="Dyes\DevilsFlame\DevilsFlameDyes.cs" />
+    <Compile Include="Dyes\Dim\DimDyes.cs" />
+    <Compile Include="Dyes\DummyDyes.cs" />
+    <Compile Include="Dyes\FlameandBlack\FlameandBlackDyes.cs" />
+    <Compile Include="Dyes\FlameandSilver\FlameandSilverDyes.cs" />
+    <Compile Include="Dyes\Flame\FlameDyes.cs" />
+    <Compile Include="Dyes\ForceField\ForceFieldDyes.cs" />
+    <Compile Include="Dyes\Gel\GelDyes.cs" />
+    <Compile Include="Dyes\GodsBlood\GodsBlood.cs" />
+    <Compile Include="Dyes\Hades\HadesDyes.cs" />
+    <Compile Include="Dyes\Highlight\HighlightDyes.cs" />
+    <Compile Include="Dyes\IntenseFlame\IntenseFlameDyes.cs" />
+    <Compile Include="Dyes\Intense\IntenseDyes.cs" />
+    <Compile Include="Dyes\LivingFlame\LivingFlameDyes.cs" />
+    <Compile Include="Dyes\Midtone\MidtoneDyes.cs" />
+    <Compile Include="Dyes\Nebula\NebulaDyes.cs" />
+    <Compile Include="Dyes\Ooze\OozeDyes.cs" />
+    <Compile Include="Dyes\Other\OtherDyes.cs" />
+    <Compile Include="Dyes\Phase\PhaseDyes.cs" />
+    <Compile Include="Dyes\Reflective\ReflectiveDyes.cs" />
+    <Compile Include="Dyes\ShiftingRainbow\ShiftingRainbowDyes.cs" />
+    <Compile Include="Dyes\Stardust\StardustDyes.cs" />
+    <Compile Include="Dyes\Twilight\TwilightDyes.cs" />
+    <Compile Include="Dyes\Vortex\VortexDyes.cs" />
+    <Compile Include="Dyes\Wisp\WispDyes.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Shaders\DyeHardRainbowShiftingShader.cs" />
+    <Compile Include="Shaders\DyeHardReflectiveShader.cs" />
+    <Compile Include="Shaders\DyeHardShader.cs" />
+    <Compile Include="Shaders\DyeHardSpecialShader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Game\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Graphics\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Graphics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Xact\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Xact.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Terraria">
+      <HintPath>D:\Program Files (x86)\Steam\steamapps\common\Terraria\Tmodloader\Terraria.exe</HintPath>
+    </Reference>
+    <Reference Include="Windows">
+      <HintPath>..\ShaderLib\Windows.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="build.txt" />
+    <Content Include="description.txt" />
+    <Content Include="Dyes\Acid\BlackAcidDye.png" />
+    <Content Include="Dyes\Acid\BrownAcidDye.png" />
+    <Content Include="Dyes\Acid\CyanAcidDye.png" />
+    <Content Include="Dyes\Acid\LimeAcidDye.png" />
+    <Content Include="Dyes\Acid\OrangeAcidDye.png" />
+    <Content Include="Dyes\Acid\PinkAcidDye.png" />
+    <Content Include="Dyes\Acid\PureBlueAcidDye.png" />
+    <Content Include="Dyes\Acid\PureGreenAcidDye.png" />
+    <Content Include="Dyes\Acid\PureRedAcidDye.png" />
+    <Content Include="Dyes\Acid\PurpleAcidDye.png" />
+    <Content Include="Dyes\Acid\SilverAcidDye.png" />
+    <Content Include="Dyes\Acid\SkyBlueAcidDye.png" />
+    <Content Include="Dyes\Acid\TealAcidDye.png" />
+    <Content Include="Dyes\Acid\VioletAcidDye.png" />
+    <Content Include="Dyes\Acid\YellowAcidDye.png" />
+    <Content Include="Dyes\andBlack\BlackandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightBlackandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightBlueandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightBrownandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightCyanandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightGreenandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightLimeandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightOrangeandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightPinkandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightPurpleandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightRedandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightSilverandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightSkyBlueandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightTealandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightVioletandBlackDye.png" />
+    <Content Include="Dyes\andBlack\BrightYellowandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimBlackandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimBlueandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimBrownandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimCyanandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimGreenandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimLimeandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimOrangeandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimPinkandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimPurpleandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimRedandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimSilverandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimSkyBlueandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimTealandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimVioletandBlackDye.png" />
+    <Content Include="Dyes\andBlack\DimYellowandBlackDye.png" />
+    <Content Include="Dyes\andBlack\FleshRedandBlackDye.png" />
+    <Content Include="Dyes\andBlack\GrossBrownandBlackDye.png" />
+    <Content Include="Dyes\andBlack\GrossPinkandBlackDye.png" />
+    <Content Include="Dyes\andBlack\RottenBrownandBlackDye.png" />
+    <Content Include="Dyes\andBlack\RottenGreenandBlackDye.png" />
+    <Content Include="Dyes\andBlack\ShadowPurpleandBlackDye.png" />
+    <Content Include="Dyes\andBlack\ViciousRedandBlackDye.png" />
+    <Content Include="Dyes\andBlack\VilePurpleandBlackDye.png" />
+    <Content Include="Dyes\andSilver\BrightBlackandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightBlueandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightBrownandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightCyanandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightGreenandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightLimeandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightOrangeandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightPinkandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightPurpleandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightRedandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightSilverandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightSkyBlueandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightTealandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightVioletandSilverDye.png" />
+    <Content Include="Dyes\andSilver\BrightYellowandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimBlackandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimBlueandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimBrownandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimCyanandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimGreenandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimLimeandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimOrangeandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimPinkandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimPurpleandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimRedandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimSilverandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimSkyBlueandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimTealandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimVioletandSilverDye.png" />
+    <Content Include="Dyes\andSilver\DimYellowandSilverDye.png" />
+    <Content Include="Dyes\andSilver\FleshRedandSilverDye.png" />
+    <Content Include="Dyes\andSilver\GrossBrownandSilverDye.png" />
+    <Content Include="Dyes\andSilver\GrossPinkandSilverDye.png" />
+    <Content Include="Dyes\andSilver\RottenBrownandSilverDye.png" />
+    <Content Include="Dyes\andSilver\RottenGreenandSilverDye.png" />
+    <Content Include="Dyes\andSilver\ShadowPurpleandSilverDye.png" />
+    <Content Include="Dyes\andSilver\SilverandSilverDye.png" />
+    <Content Include="Dyes\andSilver\ViciousRedandSilverDye.png" />
+    <Content Include="Dyes\andSilver\VilePurpleandSilverDye.png" />
+    <Content Include="Dyes\Aura\BlackAuraDye.png" />
+    <Content Include="Dyes\Aura\BlueAuraDye.png" />
+    <Content Include="Dyes\Aura\BrownAuraDye.png" />
+    <Content Include="Dyes\Aura\CyanAuraDye.png" />
+    <Content Include="Dyes\Aura\GreenAuraDye.png" />
+    <Content Include="Dyes\Aura\GrimAuraDye.png" />
+    <Content Include="Dyes\Aura\LimeAuraDye.png" />
+    <Content Include="Dyes\Aura\OrangeAuraDye.png" />
+    <Content Include="Dyes\Aura\PinkAuraDye.png" />
+    <Content Include="Dyes\Aura\PurpleAuraDye.png" />
+    <Content Include="Dyes\Aura\RedAuraDye.png" />
+    <Content Include="Dyes\Aura\SilverAuraDye.png" />
+    <Content Include="Dyes\Aura\SkyBlueAuraDye.png" />
+    <Content Include="Dyes\Aura\TealAuraDye.png" />
+    <Content Include="Dyes\Aura\VioletAuraDye.png" />
+    <Content Include="Dyes\Aura\YellowAuraDye.png" />
+    <Content Include="Dyes\Bright\BrightBlackDye.png" />
+    <Content Include="Dyes\Bright\BrightFleshRedDye.png" />
+    <Content Include="Dyes\Bright\BrightGrossBrownDye.png" />
+    <Content Include="Dyes\Bright\BrightGrossPinkDye.png" />
+    <Content Include="Dyes\Bright\BrightRottenBrownDye.png" />
+    <Content Include="Dyes\Bright\BrightRottenGreenDye.png" />
+    <Content Include="Dyes\Bright\BrightShadowPurpleDye.png" />
+    <Content Include="Dyes\Bright\BrightViciousRedDye.png" />
+    <Content Include="Dyes\Bright\BrightVilePurpleDye.png" />
+    <Content Include="Dyes\Bright\LightDye.png" />
+    <Content Include="Dyes\Colored\AdamantiteRedDye.png" />
+    <Content Include="Dyes\Colored\CopperDye.png" />
+    <Content Include="Dyes\Colored\FleshRedDye.png" />
+    <Content Include="Dyes\Colored\GoldDye.png" />
+    <Content Include="Dyes\Colored\GrossBrownDye.png" />
+    <Content Include="Dyes\Colored\GrossPinkDye.png" />
+    <Content Include="Dyes\Colored\ObsidianDye.png" />
+    <Content Include="Dyes\Colored\RottenBrownDye.png" />
+    <Content Include="Dyes\Colored\RottenGreenDye.png" />
+    <Content Include="Dyes\Colored\ShadowPurpleDye.png" />
+    <Content Include="Dyes\Colored\ViciousRedDye.png" />
+    <Content Include="Dyes\Colored\VilePurpleDye.png" />
+    <Content Include="Dyes\DevilsFlame\BlackDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\BlueDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\BrownDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\CyanDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\GreenDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\LimeDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\OrangeDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\PinkDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\PurpleDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\QuinesMiasma.png" />
+    <Content Include="Dyes\DevilsFlame\RedDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\SilverDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\SkyBlueDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\TealDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\VioletDevilsFlameDye.png" />
+    <Content Include="Dyes\DevilsFlame\YellowDevilsFlameDye.png" />
+    <Content Include="Dyes\Dim\DimBlackDye.png" />
+    <Content Include="Dyes\Dim\DimBlueDye.png" />
+    <Content Include="Dyes\Dim\DimBrownDye.png" />
+    <Content Include="Dyes\Dim\DimCyanDye.png" />
+    <Content Include="Dyes\Dim\DimFleshRedDye.png" />
+    <Content Include="Dyes\Dim\DimGreenDye.png" />
+    <Content Include="Dyes\Dim\DimGrossBrownDye.png" />
+    <Content Include="Dyes\Dim\DimGrossPinkDye.png" />
+    <Content Include="Dyes\Dim\DimLimeDye.png" />
+    <Content Include="Dyes\Dim\DimOrangeDye.png" />
+    <Content Include="Dyes\Dim\DimPinkDye.png" />
+    <Content Include="Dyes\Dim\DimPurpleDye.png" />
+    <Content Include="Dyes\Dim\DimRedDye.png" />
+    <Content Include="Dyes\Dim\DimRottenBrownDye.png" />
+    <Content Include="Dyes\Dim\DimRottenGreenDye.png" />
+    <Content Include="Dyes\Dim\DimShadowPurpleDye.png" />
+    <Content Include="Dyes\Dim\DimSilverDye.png" />
+    <Content Include="Dyes\Dim\DimSkyBlueDye.png" />
+    <Content Include="Dyes\Dim\DimTealDye.png" />
+    <Content Include="Dyes\Dim\DimViciousRedDye.png" />
+    <Content Include="Dyes\Dim\DimVilePurpleDye.png" />
+    <Content Include="Dyes\Dim\DimVioletDye.png" />
+    <Content Include="Dyes\Dim\DimYellowDye.png" />
+    <Content Include="Dyes\DummyDyeNumber1.png" />
+    <Content Include="Dyes\FlameandBlack\BrightBlueFlameandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\BrightCyanGradientandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\BrightFlameandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\BrightGreenFlameandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\BrightVioletGradientandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\BrightYellowGradientandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\CyanGradientandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\DimBlueFlameandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\DimCyanGradientandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\DimFlameandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\DimGreenFlameandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\DimVioletGradientandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\DimYellowGradientandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\VioletGradientandBlackDye.png" />
+    <Content Include="Dyes\FlameandBlack\YellowGradientandBlackDye.png" />
+    <Content Include="Dyes\FlameandSilver\BrightBlueFlameandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\BrightCyanGradientandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\BrightFlameandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\BrightGreenFlameandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\BrightVioletGradientandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\BrightYellowGradientandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\CyanGradientandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\DimBlueFlameandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\DimCyanGradientandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\DimFlameandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\DimGreenFlameandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\DimVioletGradientandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\DimYellowGradientandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\VioletGradientandSilverDye.png" />
+    <Content Include="Dyes\FlameandSilver\YellowGradientandSilverDye.png" />
+    <Content Include="Dyes\Flame\BrightBlueFlameDye.png" />
+    <Content Include="Dyes\Flame\BrightCyanGradientDye.png" />
+    <Content Include="Dyes\Flame\BrightFlameDye.png" />
+    <Content Include="Dyes\Flame\BrightGreenFlameDye.png" />
+    <Content Include="Dyes\Flame\BrightVioletGradientDye.png" />
+    <Content Include="Dyes\Flame\BrightYellowGradientDye.png" />
+    <Content Include="Dyes\Flame\DimBlueFlameDye.png" />
+    <Content Include="Dyes\Flame\DimCyanGradientDye.png" />
+    <Content Include="Dyes\Flame\DimFlameDye.png" />
+    <Content Include="Dyes\Flame\DimGreenFlameDye.png" />
+    <Content Include="Dyes\Flame\DimVioletGradientDye.png" />
+    <Content Include="Dyes\Flame\DimYellowGradientDye.png" />
+    <Content Include="Dyes\ForceField\BlackForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\BlackForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\BlueForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\BlueForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\BrownForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\BrownForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\CyanForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\CyanForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\ForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\ForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\GreenForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\GreenForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\LimeForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\LimeForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\OrangeForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\OrangeForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\PinkForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\PinkForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\PurpleForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\PurpleForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\RedForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\RedForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\SilverForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\SilverForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\SkyBlueForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\SkyBlueForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\TealForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\TealForceFieldDye2.png" />
+    <Content Include="Dyes\ForceField\TealForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\VioletForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\VioletForceFieldDye_Glow.png" />
+    <Content Include="Dyes\ForceField\YellowForceFieldDye.png" />
+    <Content Include="Dyes\ForceField\YellowForceFieldDye_Glow.png" />
+    <Content Include="Dyes\Gel\BlackGelDye.png" />
+    <Content Include="Dyes\Gel\BlueGelDye.png" />
+    <Content Include="Dyes\Gel\BrownGelDye.png" />
+    <Content Include="Dyes\Gel\CyanGelDye.png" />
+    <Content Include="Dyes\Gel\GreenGelDye.png" />
+    <Content Include="Dyes\Gel\LimeGelDye.png" />
+    <Content Include="Dyes\Gel\OrangeGelDye.png" />
+    <Content Include="Dyes\Gel\PinkGelDye.png" />
+    <Content Include="Dyes\Gel\PurpleGelDye.png" />
+    <Content Include="Dyes\Gel\RedGelDye.png" />
+    <Content Include="Dyes\Gel\SilverGelDye.png" />
+    <Content Include="Dyes\Gel\SkyBlueGelDye.png" />
+    <Content Include="Dyes\Gel\TealGelDye.png" />
+    <Content Include="Dyes\Gel\VioletGelDye.png" />
+    <Content Include="Dyes\Gel\YellowGelDye.png" />
+    <Content Include="Dyes\GodsBlood\BlackGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\BlueGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\BrownGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\CyanGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\GreenGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\LimeGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\OrangeGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\PinkGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\RedGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\SilverGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\SkyBlueGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\TealGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\VioletGodsBlood.png" />
+    <Content Include="Dyes\GodsBlood\YellowGodsBlood.png" />
+    <Content Include="Dyes\Hades\BlackHadesDye.png" />
+    <Content Include="Dyes\Hades\BlueHadesDye.png" />
+    <Content Include="Dyes\Hades\BrownHadesDye.png" />
+    <Content Include="Dyes\Hades\CyanHadesDye.png" />
+    <Content Include="Dyes\Hades\GreenHadesDye.png" />
+    <Content Include="Dyes\Hades\LimeHadesDye.png" />
+    <Content Include="Dyes\Hades\OrangeHadesDye.png" />
+    <Content Include="Dyes\Hades\PinkHadesDye.png" />
+    <Content Include="Dyes\Hades\PurpleHadesDye.png" />
+    <Content Include="Dyes\Hades\RedHadesDye.png" />
+    <Content Include="Dyes\Hades\SilverHadesDye.png" />
+    <Content Include="Dyes\Hades\SkyBlueHadesDye.png" />
+    <Content Include="Dyes\Hades\TealHadesDye.png" />
+    <Content Include="Dyes\Hades\VioletHadesDye.png" />
+    <Content Include="Dyes\Hades\YellowHadesDye.png" />
+    <Content Include="Dyes\Highlight\BlackHighlightDye.png" />
+    <Content Include="Dyes\Highlight\BlackHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\BlueHighlightDye.png" />
+    <Content Include="Dyes\Highlight\BlueHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\BrownHighlightDye.png" />
+    <Content Include="Dyes\Highlight\BrownHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\CyanHighlightDye.png" />
+    <Content Include="Dyes\Highlight\CyanHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\LimeHighlightDye.png" />
+    <Content Include="Dyes\Highlight\LimeHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\OrangeHighlightDye.png" />
+    <Content Include="Dyes\Highlight\OrangeHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\PinkHighlightDye.png" />
+    <Content Include="Dyes\Highlight\PinkHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\PurpleHighlightDye.png" />
+    <Content Include="Dyes\Highlight\PurpleHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\RedHighlightDye.png" />
+    <Content Include="Dyes\Highlight\RedHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\SilverHighlightDye.png" />
+    <Content Include="Dyes\Highlight\SilverHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\SkyBlueHighlightDye.png" />
+    <Content Include="Dyes\Highlight\SkyBlueHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\TealHighlightDye.png" />
+    <Content Include="Dyes\Highlight\TealHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\VioletHighlightDye.png" />
+    <Content Include="Dyes\Highlight\VioletHighlightDye_Glow.png" />
+    <Content Include="Dyes\Highlight\YellowHighlightDye.png" />
+    <Content Include="Dyes\Highlight\YellowHighlightDye_Glow.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseBrightBlueFlameDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseBrightCyanGradientDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseBrightFlameDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseBrightGreenFlameDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseBrightVioletGradientDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseBrightYellowGradientDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseCyanGradientDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseDimBlueFlameDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseDimCyanGradientDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseDimFlameDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseDimGreenFlameDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseDimVioletGradientDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseDimYellowGradientDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseVioletGradientDye.png" />
+    <Content Include="Dyes\IntenseFlame\IntenseYellowGradientDye.png" />
+    <Content Include="Dyes\Intense\IntenseBlackDye.png" />
+    <Content Include="Dyes\Intense\IntenseBlueDye.png" />
+    <Content Include="Dyes\Intense\IntenseBrownDye.png" />
+    <Content Include="Dyes\Intense\IntenseCyanDye.png" />
+    <Content Include="Dyes\Intense\IntenseFleshRedDye.png" />
+    <Content Include="Dyes\Intense\IntenseGreenDye.png" />
+    <Content Include="Dyes\Intense\IntenseGrossBrownDye.png" />
+    <Content Include="Dyes\Intense\IntenseGrossPinkDye.png" />
+    <Content Include="Dyes\Intense\IntenseLimeDye.png" />
+    <Content Include="Dyes\Intense\IntenseOrangeDye.png" />
+    <Content Include="Dyes\Intense\IntensePinkDye.png" />
+    <Content Include="Dyes\Intense\IntensePurpleDye.png" />
+    <Content Include="Dyes\Intense\IntenseRedDye.png" />
+    <Content Include="Dyes\Intense\IntenseRottenBrownDye.png" />
+    <Content Include="Dyes\Intense\IntenseRottenGreenDye.png" />
+    <Content Include="Dyes\Intense\IntenseShadowPurpleDye.png" />
+    <Content Include="Dyes\Intense\IntenseSilverDye.png" />
+    <Content Include="Dyes\Intense\IntenseSkyBlueDye.png" />
+    <Content Include="Dyes\Intense\IntenseTealDye.png" />
+    <Content Include="Dyes\Intense\IntenseViciousRedDye.png" />
+    <Content Include="Dyes\Intense\IntenseVilePurpleDye.png" />
+    <Content Include="Dyes\Intense\IntenseVioletDye.png" />
+    <Content Include="Dyes\Intense\IntenseYellowDye.png" />
+    <Content Include="Dyes\LivingFlame\BlueLivingFlameDye.png" />
+    <Content Include="Dyes\LivingFlame\CyanLivingGradientDye.png" />
+    <Content Include="Dyes\LivingFlame\GreenLivingFlameDye.png" />
+    <Content Include="Dyes\LivingFlame\VioletLivingGradientDye.png" />
+    <Content Include="Dyes\LivingFlame\YellowLivingGradientDye.png" />
+    <Content Include="Dyes\Midtone\BlackMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\BlueMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\BrownMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\CyanMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\GreenMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\LimeMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\OrangeMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\PinkMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\PurpleMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\RedMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\SilverMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\SkyBlueMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\TealMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\VioletMidtoneDye.png" />
+    <Content Include="Dyes\Midtone\YellowMidtoneDye.png" />
+    <Content Include="Dyes\Nebula\BlackNebulaDye.png" />
+    <Content Include="Dyes\Nebula\BlueNebulaDye.png" />
+    <Content Include="Dyes\Nebula\BrownNebulaDye.png" />
+    <Content Include="Dyes\Nebula\CyanNebulaDye.png" />
+    <Content Include="Dyes\Nebula\GreenNebulaDye.png" />
+    <Content Include="Dyes\Nebula\LimeNebulaDye.png" />
+    <Content Include="Dyes\Nebula\OrangeNebulaDye.png" />
+    <Content Include="Dyes\Nebula\PinkNebulaDye.png" />
+    <Content Include="Dyes\Nebula\PurpleNebulaDye.png" />
+    <Content Include="Dyes\Nebula\RedNebulaDye.png" />
+    <Content Include="Dyes\Nebula\SilverNebulaDye.png" />
+    <Content Include="Dyes\Nebula\SkyBlueNebulaDye.png" />
+    <Content Include="Dyes\Nebula\TealNebulaDye.png" />
+    <Content Include="Dyes\Nebula\VioletNebulaDye.png" />
+    <Content Include="Dyes\Nebula\YellowNebulaDye.png" />
+    <Content Include="Dyes\Ooze\BlackOozeDye.png" />
+    <Content Include="Dyes\Ooze\BlueOozeDye.png" />
+    <Content Include="Dyes\Ooze\BrownOozeDye.png" />
+    <Content Include="Dyes\Ooze\CyanOozeDye.png" />
+    <Content Include="Dyes\Ooze\GreenOozeDye.png" />
+    <Content Include="Dyes\Ooze\LimeOozeDye.png" />
+    <Content Include="Dyes\Ooze\OrangeOozeDye.png" />
+    <Content Include="Dyes\Ooze\PinkOozeDye.png" />
+    <Content Include="Dyes\Ooze\RedOozeDye.png" />
+    <Content Include="Dyes\Ooze\SilverOozeDye.png" />
+    <Content Include="Dyes\Ooze\SkyBlueOozeDye.png" />
+    <Content Include="Dyes\Ooze\TealOozeDye.png" />
+    <Content Include="Dyes\Ooze\VioletOozeDye.png" />
+    <Content Include="Dyes\Ooze\YellowOozeDye.png" />
+    <Content Include="Dyes\Other\BiomeDye.png" />
+    <Content Include="Dyes\Other\BlueLifeDye.png" />
+    <Content Include="Dyes\Other\CottonCandyPartyDye.png" />
+    <Content Include="Dyes\Other\DepthDye.png" />
+    <Content Include="Dyes\Other\GoldenLifeDye.png" />
+    <Content Include="Dyes\Other\GreenLifeDye.png" />
+    <Content Include="Dyes\Other\GreenManaDye.png" />
+    <Content Include="Dyes\Other\LifeDye.png" />
+    <Content Include="Dyes\Other\ManaDye.png" />
+    <Content Include="Dyes\Other\MoneyDye.png" />
+    <Content Include="Dyes\Other\PartyDye.png" />
+    <Content Include="Dyes\Other\RedManaDye.png" />
+    <Content Include="Dyes\Other\SpeedDye.png" />
+    <Content Include="Dyes\Other\TimeDye.png" />
+    <Content Include="Dyes\Phase\BlackPhaseDye.png" />
+    <Content Include="Dyes\Phase\BluePhaseDye.png" />
+    <Content Include="Dyes\Phase\BrownPhaseDye.png" />
+    <Content Include="Dyes\Phase\CyanPhaseDye.png" />
+    <Content Include="Dyes\Phase\GreenPhaseDye.png" />
+    <Content Include="Dyes\Phase\LimePhaseDye.png" />
+    <Content Include="Dyes\Phase\OrangePhaseDye.png" />
+    <Content Include="Dyes\Phase\PinkPhaseDye.png" />
+    <Content Include="Dyes\Phase\RedPhaseDye.png" />
+    <Content Include="Dyes\Phase\SilverPhaseDye.png" />
+    <Content Include="Dyes\Phase\SkyBluePhaseDye.png" />
+    <Content Include="Dyes\Phase\TealPhaseDye.png" />
+    <Content Include="Dyes\Phase\VioletPhaseDye.png" />
+    <Content Include="Dyes\Phase\YellowPhaseDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveAdamantiteDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveCobaltDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveDemoniteDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveHellstoneDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveIronDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveLeadDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveMeteoriteDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveMythrilDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveOrichalcumDye.png" />
+    <Content Include="Dyes\Reflective\ReflectivePalladiumDye.png" />
+    <Content Include="Dyes\Reflective\ReflectivePlatinumDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveRedDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveTinDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveTitaniumDye.png" />
+    <Content Include="Dyes\Reflective\ReflectiveTungstenDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\BrightShiftingRainbowandBlackDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\BrightShiftingRainbowandSilverDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\BrightShiftingRainbowDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\BrightShiftingRainbowFlameandBlackDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\BrightShiftingRainbowFlameandSilverDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\BrightShiftingRainbowFlameDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\DimShiftingRainbowandBlackDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\DimShiftingRainbowandSilverDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\DimShiftingRainbowDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\DimShiftingRainbowFlameandBlackDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\DimShiftingRainbowFlameandSilverDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\DimShiftingRainbowFlameDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\IntenseBrightShiftingRainbowDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\IntenseBrightShiftingRainbowFlameDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\IntenseDimShiftingRainbowDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\IntenseDimShiftingRainbowFlameDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\IntenseShiftingRainbowDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\IntenseShiftingRainbowFlameDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ReflectiveShiftingRainbowDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowAcidDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowandBlackDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowandSilverDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowAuraDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowFlameandBlackDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowFlameandSilverDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowFlameDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowForceFieldDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowHadesDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowHighlightDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowMidtoneDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowNebulaDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowPhaseDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowStardustDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowTwilightDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowVortexDye.png" />
+    <Content Include="Dyes\ShiftingRainbow\ShiftingRainbowWispDye.png" />
+    <Content Include="Dyes\Stardust\BlackStardustDye.png" />
+    <Content Include="Dyes\Stardust\BlueStardustDye.png" />
+    <Content Include="Dyes\Stardust\BrownStardustDye.png" />
+    <Content Include="Dyes\Stardust\CyanStardustDye.png" />
+    <Content Include="Dyes\Stardust\GreenStardustDye.png" />
+    <Content Include="Dyes\Stardust\LimeStardustDye.png" />
+    <Content Include="Dyes\Stardust\OrangeStardustDye.png" />
+    <Content Include="Dyes\Stardust\PinkStardustDye.png" />
+    <Content Include="Dyes\Stardust\PurpleStardustDye.png" />
+    <Content Include="Dyes\Stardust\RedStardustDye.png" />
+    <Content Include="Dyes\Stardust\SilverStardustDye.png" />
+    <Content Include="Dyes\Stardust\SkyBlueStardustDye.png" />
+    <Content Include="Dyes\Stardust\TealStardustDye.png" />
+    <Content Include="Dyes\Stardust\VioletStardustDye.png" />
+    <Content Include="Dyes\Stardust\YellowStardustDye.png" />
+    <Content Include="Dyes\Twilight\BlackTwilightDye.png" />
+    <Content Include="Dyes\Twilight\BlueTwilightDye.png" />
+    <Content Include="Dyes\Twilight\BrownTwilightDye.png" />
+    <Content Include="Dyes\Twilight\CyanTwilightDye.png" />
+    <Content Include="Dyes\Twilight\GreenTwilightDye.png" />
+    <Content Include="Dyes\Twilight\LimeTwilightDye.png" />
+    <Content Include="Dyes\Twilight\OrangeTwilightDye.png" />
+    <Content Include="Dyes\Twilight\PinkTwilightDye.png" />
+    <Content Include="Dyes\Twilight\RedTwilightDye.png" />
+    <Content Include="Dyes\Twilight\SilverTwilightDye.png" />
+    <Content Include="Dyes\Twilight\SkyBlueTwilightDye.png" />
+    <Content Include="Dyes\Twilight\TealTwilightDye.png" />
+    <Content Include="Dyes\Twilight\VioletTwilightDye.png" />
+    <Content Include="Dyes\Twilight\YellowTwilightDye.png" />
+    <Content Include="Dyes\Vortex\BlackVortexDye.png" />
+    <Content Include="Dyes\Vortex\BlueVortexDye.png" />
+    <Content Include="Dyes\Vortex\BrownVortexDye.png" />
+    <Content Include="Dyes\Vortex\CyanVortexDye.png" />
+    <Content Include="Dyes\Vortex\GreenVortexDye.png" />
+    <Content Include="Dyes\Vortex\LimeVortexDye.png" />
+    <Content Include="Dyes\Vortex\OrangeVortexDye.png" />
+    <Content Include="Dyes\Vortex\PinkVortexDye.png" />
+    <Content Include="Dyes\Vortex\PurpleVortexDye.png" />
+    <Content Include="Dyes\Vortex\RedVortexDye.png" />
+    <Content Include="Dyes\Vortex\SilverVortexDye.png" />
+    <Content Include="Dyes\Vortex\SkyBlueVortexDye.png" />
+    <Content Include="Dyes\Vortex\TealVortexDye.png" />
+    <Content Include="Dyes\Vortex\VioletVortexDye.png" />
+    <Content Include="Dyes\Vortex\YellowVortexDye.png" />
+    <Content Include="Dyes\Wisp\SpiritDye.png" />
+    <Content Include="icon.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"D:\Program Files (x86)\Steam\steamapps\common\Terraria\tModLoader\tModLoaderServer.exe" -build "$(ProjectDir)\" -eac "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>
