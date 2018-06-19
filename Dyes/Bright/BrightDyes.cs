@@ -243,17 +243,5 @@ namespace DyeHard.Dyes.Bright
 			item.value = Item.sellPrice(0, 0, 75, 0);
 			item.rare = 2;
         }
-        public override void AddRecipes()
-        {
-            if (Config.DyeAcquisition == "both" || Config.DyeAcquisition == "craft")
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ItemID.SilverDye);
-                recipe.AddIngredient(ItemID.SilverDye);
-                recipe.AddTile(TileID.DyeVat);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }
     }
 }
