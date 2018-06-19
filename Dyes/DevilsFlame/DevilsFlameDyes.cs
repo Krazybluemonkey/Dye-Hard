@@ -404,7 +404,7 @@ namespace DyeHard.Dyes.DevilsFlame
                 recipe.AddIngredient(ItemID.CyanDye);
                 recipe.AddIngredient(ItemID.SkyBlueDye);
                 recipe.AddTile(TileID.DyeVat);
-                recipe.SetResult(this);
+                recipe.SetResult(this, 4);
                 recipe.AddRecipe();
             }
         }
