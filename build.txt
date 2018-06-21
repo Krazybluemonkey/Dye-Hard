@@ -1,5 +1,6 @@
 modReferences = ShaderLib
 author = Quine
+homepage = https://forums.terraria.org/index.php?threads/dye-hard.70392/
 version = 1.0
 displayName = Dye Hard
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, *.md
