@@ -17,31 +17,31 @@ namespace DyeHard
 
 		public override void GetDyeTraderReward(List<int> dyeItemIDsPool)
 		{
-            long playerCoin = 0L;
-            for (int l = 0; l < 54; l++)
-            {
-                if (Main.player[Main.myPlayer].inventory[l].type == 71)
-                {
-                    playerCoin += Main.player[Main.myPlayer].inventory[l].stack;
-                }
-                if (Main.player[Main.myPlayer].inventory[l].type == 72)
-                {
-                    playerCoin += Main.player[Main.myPlayer].inventory[l].stack * 100;
-                }
-                if (Main.player[Main.myPlayer].inventory[l].type == 73)
-                {
-                    playerCoin += Main.player[Main.myPlayer].inventory[l].stack * 10000;
-                }
-                if (Main.player[Main.myPlayer].inventory[l].type == 74)
-                {
-                    playerCoin += Main.player[Main.myPlayer].inventory[l].stack * 1000000;
-                }
-            }
-            if (NPC.downedMoonlord)
-            {
-                dyeItemIDsPool.Add(mod.ItemType("QuinesMiasma"));
-            }
-            if (Config.DyeAcquisition == "both" || Config.DyeAcquisition == "reward")
+			long playerCoin = 0L;
+			for (int l = 0; l < 54; l++)
+			{
+				if (Main.player[Main.myPlayer].inventory[l].type == 71)
+				{
+					playerCoin += Main.player[Main.myPlayer].inventory[l].stack;
+				}
+				if (Main.player[Main.myPlayer].inventory[l].type == 72)
+				{
+					playerCoin += Main.player[Main.myPlayer].inventory[l].stack * 100;
+				}
+				if (Main.player[Main.myPlayer].inventory[l].type == 73)
+				{
+					playerCoin += Main.player[Main.myPlayer].inventory[l].stack * 10000;
+				}
+				if (Main.player[Main.myPlayer].inventory[l].type == 74)
+				{
+					playerCoin += Main.player[Main.myPlayer].inventory[l].stack * 1000000;
+				}
+			}
+			if (NPC.downedMoonlord)
+			{
+				dyeItemIDsPool.Add(mod.ItemType("QuinesMiasma"));
+			}
+			if (Config.DyeAcquisition == "both" || Config.DyeAcquisition == "reward")
 			{
 				dyeItemIDsPool.Add(mod.ItemType("LightDye"));
 				//acid
@@ -92,47 +92,47 @@ namespace DyeHard
 				dyeItemIDsPool.Add(mod.ItemType("TealOozeDye"));
 				dyeItemIDsPool.Add(mod.ItemType("VioletOozeDye"));
 				dyeItemIDsPool.Add(mod.ItemType("YellowOozeDye"));
-                //reflective
-                dyeItemIDsPool.Add(mod.ItemType("ReflectiveTinDye"));
-                dyeItemIDsPool.Add(mod.ItemType("ReflectiveTungstenDye"));
-                dyeItemIDsPool.Add(mod.ItemType("ReflectivePlatinumDye"));
-                if (NPC.downedBoss2)
-                {
-                    dyeItemIDsPool.Add(mod.ItemType("ReflectiveDemoniteDye"));
-                }
-                //other
-                dyeItemIDsPool.Add(mod.ItemType("DepthDye"));
-                if (Main.player[Main.myPlayer].statLifeMax >= 400)
-                {
-                    dyeItemIDsPool.Add(mod.ItemType("LifeDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("GreenLifeDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("BlueLifeDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("GoldenLifeDye"));
-                }
-                if(Main.player[Main.myPlayer].statManaMax >= 200)
-                {
-                    dyeItemIDsPool.Add(mod.ItemType("ManaDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("GreenManaDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("BlueManaDye"));
-                }
-                if (playerCoin >= 1000000)
-                {
-                    dyeItemIDsPool.Add(mod.ItemType("MoneyDye"));
-                }
-                if (Main.moonPhase % 2 == 0 && Main.dayTime || Main.moonPhase % 2 == 1 && !Main.dayTime)
-                {
-                    dyeItemIDsPool.Add(mod.ItemType("TimeDye"));
-                }
-                if (NPC.AnyNPCs(208))
-                {
-                    dyeItemIDsPool.Add(mod.ItemType("PartyDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("CottonCandyPartyDye"));
-                }
-                if (Main.hardMode)
+				//reflective
+				dyeItemIDsPool.Add(mod.ItemType("ReflectiveTinDye"));
+				dyeItemIDsPool.Add(mod.ItemType("ReflectiveTungstenDye"));
+				dyeItemIDsPool.Add(mod.ItemType("ReflectivePlatinumDye"));
+				if (NPC.downedBoss2)
 				{
-                    //shifting rainbow
-                    dyeItemIDsPool.Add(mod.ItemType("ShiftingRainbowDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("ShiftingRainbowAcidDye"));
+					dyeItemIDsPool.Add(mod.ItemType("ReflectiveDemoniteDye"));
+				}
+				//other
+				dyeItemIDsPool.Add(mod.ItemType("DepthDye"));
+				if (Main.player[Main.myPlayer].statLifeMax >= 400)
+				{
+					dyeItemIDsPool.Add(mod.ItemType("LifeDye"));
+					dyeItemIDsPool.Add(mod.ItemType("GreenLifeDye"));
+					dyeItemIDsPool.Add(mod.ItemType("BlueLifeDye"));
+					dyeItemIDsPool.Add(mod.ItemType("GoldenLifeDye"));
+				}
+				if(Main.player[Main.myPlayer].statManaMax >= 200)
+				{
+					dyeItemIDsPool.Add(mod.ItemType("ManaDye"));
+					dyeItemIDsPool.Add(mod.ItemType("GreenManaDye"));
+					dyeItemIDsPool.Add(mod.ItemType("BlueManaDye"));
+				}
+				if (playerCoin >= 1000000)
+				{
+					dyeItemIDsPool.Add(mod.ItemType("MoneyDye"));
+				}
+				if (Main.moonPhase % 2 == 0 && Main.dayTime || Main.moonPhase % 2 == 1 && !Main.dayTime)
+				{
+					dyeItemIDsPool.Add(mod.ItemType("TimeDye"));
+				}
+				if (NPC.AnyNPCs(208))
+				{
+					dyeItemIDsPool.Add(mod.ItemType("PartyDye"));
+					dyeItemIDsPool.Add(mod.ItemType("CottonCandyPartyDye"));
+				}
+				if (Main.hardMode)
+				{
+					//shifting rainbow
+					dyeItemIDsPool.Add(mod.ItemType("ShiftingRainbowDye"));
+					dyeItemIDsPool.Add(mod.ItemType("ShiftingRainbowAcidDye"));
 					dyeItemIDsPool.Add(mod.ItemType("ShiftingRainbowHadesDye"));
 					dyeItemIDsPool.Add(mod.ItemType("ShiftingRainbowMidtoneDye"));
 					dyeItemIDsPool.Add(mod.ItemType("ShiftingRainbowTwilightDye"));
@@ -169,45 +169,45 @@ namespace DyeHard
 					dyeItemIDsPool.Add(mod.ItemType("TealTwilightDye"));
 					dyeItemIDsPool.Add(mod.ItemType("VioletTwilightDye"));
 					dyeItemIDsPool.Add(mod.ItemType("YellowTwilightDye"));
-                    //gel
-                    dyeItemIDsPool.Add(mod.ItemType("BlackGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("BlueGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("BrownGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("CyanGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("GreenGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("LimeGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("OrangeGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("PinkGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("PurpleGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("RedGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("SilverGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("SkyBlueGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("TealGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("VioletGelDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("YellowGelDye"));
-                    //phase
-                    dyeItemIDsPool.Add(mod.ItemType("BlackPhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("BluePhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("BrownPhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("CyanPhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("GreenPhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("LimePhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("OrangePhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("PinkPhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("PurplePhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("RedPhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("SilverPhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("SkyBluePhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("TealPhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("VioletPhaseDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("YellowPhaseDye"));
-                    //reflective
-                    dyeItemIDsPool.Add(mod.ItemType("ReflectiveCobaltDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("ReflectiveMythrilDye"));
-                    dyeItemIDsPool.Add(mod.ItemType("ReflectiveAdamantiteDye"));
-                    //other
-                    dyeItemIDsPool.Add(mod.ItemType("BiomeDye"));
-                    if (NPC.downedMechBossAny)
+					//gel
+					dyeItemIDsPool.Add(mod.ItemType("BlackGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("BlueGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("BrownGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("CyanGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("GreenGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("LimeGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("OrangeGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("PinkGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("PurpleGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("RedGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("SilverGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("SkyBlueGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("TealGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("VioletGelDye"));
+					dyeItemIDsPool.Add(mod.ItemType("YellowGelDye"));
+					//phase
+					dyeItemIDsPool.Add(mod.ItemType("BlackPhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("BluePhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("BrownPhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("CyanPhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("GreenPhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("LimePhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("OrangePhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("PinkPhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("PurplePhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("RedPhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("SilverPhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("SkyBluePhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("TealPhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("VioletPhaseDye"));
+					dyeItemIDsPool.Add(mod.ItemType("YellowPhaseDye"));
+					//reflective
+					dyeItemIDsPool.Add(mod.ItemType("ReflectiveCobaltDye"));
+					dyeItemIDsPool.Add(mod.ItemType("ReflectiveMythrilDye"));
+					dyeItemIDsPool.Add(mod.ItemType("ReflectiveAdamantiteDye"));
+					//other
+					dyeItemIDsPool.Add(mod.ItemType("BiomeDye"));
+					if (NPC.downedMechBossAny)
 					{
 						//chlorophyte/highlight
 						dyeItemIDsPool.Add(mod.ItemType("BlackHighlightDye"));
@@ -231,34 +231,34 @@ namespace DyeHard
 						dyeItemIDsPool.Add(mod.ItemType("VioletLivingGradientDye"));
 						dyeItemIDsPool.Add(mod.ItemType("CyanLivingGradientDye"));
 						dyeItemIDsPool.Add(mod.ItemType("YellowLivingGradientDye"));
-                        //other
-                        dyeItemIDsPool.Add(mod.ItemType("SpeedDye"));
-                    }
+						//other
+						dyeItemIDsPool.Add(mod.ItemType("SpeedDye"));
+					}
 					if (NPC.downedPlantBoss)
 					{
-							//wisp
-							dyeItemIDsPool.Add(mod.ItemType("SpiritDye"));
+						//wisp
+						dyeItemIDsPool.Add(mod.ItemType("SpiritDye"));
 					}
-                    if (NPC.downedMartians)
-                    {
-                        //force field
-                        dyeItemIDsPool.Add(mod.ItemType("ForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("BlackForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("BlueForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("BrownForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("CyanForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("GreenForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("LimeForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("OrangeForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("PinkForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("PurpleForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("RedForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("SilverForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("SkyBlueForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("TealForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("YellowForceFieldDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("ShiftingRainbowForceFieldDye"));
-                    }
+					if (NPC.downedMartians)
+					{
+						//force field
+						dyeItemIDsPool.Add(mod.ItemType("ForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("BlackForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("BlueForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("BrownForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("CyanForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("GreenForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("LimeForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("OrangeForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("PinkForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("PurpleForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("RedForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("SilverForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("SkyBlueForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("TealForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("YellowForceFieldDye"));
+						dyeItemIDsPool.Add(mod.ItemType("ShiftingRainbowForceFieldDye"));
+					}
 					if (NPC.downedTowerNebula)
 					{
 						//nebula
@@ -317,40 +317,40 @@ namespace DyeHard
 						dyeItemIDsPool.Add(mod.ItemType("ShiftingRainbowVortexDye"));
 					}
 					if (NPC.downedMoonlord)
-                    {
-                        //gods' blood
-                        dyeItemIDsPool.Add(mod.ItemType("BlackGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("BlueGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("BrownGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("CyanGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("GreenGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("LimeGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("OrangeGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("PinkGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("PurpleGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("RedGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("SilverGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("SkyBlueGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("TealGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("VioletGodsBlood"));
-                        dyeItemIDsPool.Add(mod.ItemType("YellowGodsBlood"));
-                        //devil's flame
-                        dyeItemIDsPool.Add(mod.ItemType("BlackDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("BlueDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("BrownDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("CyanDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("GreenDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("LimeDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("OrangeDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("PinkDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("PurpleDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("RedDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("SilverDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("SkyBlueDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("TealDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("VioletDevilsFlameDye"));
-                        dyeItemIDsPool.Add(mod.ItemType("YellowDevilsFlameDye"));
-                    }
+					{
+						//gods' blood
+						dyeItemIDsPool.Add(mod.ItemType("BlackGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("BlueGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("BrownGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("CyanGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("GreenGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("LimeGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("OrangeGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("PinkGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("PurpleGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("RedGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("SilverGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("SkyBlueGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("TealGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("VioletGodsBlood"));
+						dyeItemIDsPool.Add(mod.ItemType("YellowGodsBlood"));
+						//devil's flame
+						dyeItemIDsPool.Add(mod.ItemType("BlackDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("BlueDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("BrownDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("CyanDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("GreenDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("LimeDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("OrangeDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("PinkDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("PurpleDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("RedDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("SilverDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("SkyBlueDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("TealDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("VioletDevilsFlameDye"));
+						dyeItemIDsPool.Add(mod.ItemType("YellowDevilsFlameDye"));
+					}
 				}
 			}
 		}
