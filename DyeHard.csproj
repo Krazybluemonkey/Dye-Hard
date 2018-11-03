@@ -69,15 +69,19 @@
     <Compile Include="Dyes\Ooze\OozeDyes.cs" />
     <Compile Include="Dyes\Other\OtherDyes.cs" />
     <Compile Include="Dyes\Phase\PhaseDyes.cs" />
+    <Compile Include="Dyes\Player\PlayerDyes.cs" />
     <Compile Include="Dyes\Reflective\ReflectiveDyes.cs" />
     <Compile Include="Dyes\ShiftingRainbow\ShiftingRainbowDyes.cs" />
     <Compile Include="Dyes\Stardust\StardustDyes.cs" />
     <Compile Include="Dyes\Twilight\TwilightDyes.cs" />
     <Compile Include="Dyes\Vortex\VortexDyes.cs" />
     <Compile Include="Dyes\Wisp\WispDyes.cs" />
+    <Compile Include="NPCs\DyeHardGlobalNPC.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Shaders\DyeHardDemonShader.cs" />
+    <Compile Include="Shaders\DyeHardPlayerShader.cs" />
     <Compile Include="Shaders\DyeHardRainbowShiftingShader.cs" />
     <Compile Include="Shaders\DyeHardReflectiveShader.cs" />
     <Compile Include="Shaders\DyeHardShader.cs" />
@@ -232,6 +236,8 @@
     <Content Include="Dyes\Bright\LightDye.png" />
     <Content Include="Dyes\Colored\AdamantiteRedDye.png" />
     <Content Include="Dyes\Colored\CopperDye.png" />
+    <Content Include="Dyes\Colored\CottonCandyBlueDye.png" />
+    <Content Include="Dyes\Colored\CottonCandyPinkDye.png" />
     <Content Include="Dyes\Colored\FleshRedDye.png" />
     <Content Include="Dyes\Colored\GoldDye.png" />
     <Content Include="Dyes\Colored\GrossBrownDye.png" />
@@ -519,6 +525,8 @@
     <Content Include="Dyes\Other\BiomeDye.png" />
     <Content Include="Dyes\Other\BlueLifeDye.png" />
     <Content Include="Dyes\Other\CottonCandyPartyDye.png" />
+    <Content Include="Dyes\Other\CrystalLightDye.png" />
+    <Content Include="Dyes\Other\DemonFireDye.png" />
     <Content Include="Dyes\Other\DepthDye.png" />
     <Content Include="Dyes\Other\GoldenLifeDye.png" />
     <Content Include="Dyes\Other\GreenLifeDye.png" />
@@ -544,6 +552,7 @@
     <Content Include="Dyes\Phase\TealPhaseDye.png" />
     <Content Include="Dyes\Phase\VioletPhaseDye.png" />
     <Content Include="Dyes\Phase\YellowPhaseDye.png" />
+    <Content Include="Dyes\Player\FamiliarDye.png" />
     <Content Include="Dyes\Reflective\ReflectiveAdamantiteDye.png" />
     <Content Include="Dyes\Reflective\ReflectiveCobaltDye.png" />
     <Content Include="Dyes\Reflective\ReflectiveDemoniteDye.png" />

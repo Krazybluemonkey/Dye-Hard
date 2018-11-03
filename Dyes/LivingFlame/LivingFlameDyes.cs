@@ -17,6 +17,7 @@ namespace DyeHard.Dyes.LivingFlame
 			item.maxStack = 99;
 			item.value = Item.sellPrice(0, 1, 50, 0);
 			item.rare = 3;
+			item.dye = 62;
 		}
 		public override void AddRecipes()
 		{
@@ -31,7 +32,7 @@ namespace DyeHard.Dyes.LivingFlame
 			}
 		}
 	}
-	
+
 	public class CyanLivingGradientDye : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -45,6 +46,7 @@ namespace DyeHard.Dyes.LivingFlame
 			item.maxStack = 99;
 			item.value = Item.sellPrice(0, 1, 50, 0);
 			item.rare = 3;
+			item.dye = 71;
 		}
 		public override void AddRecipes()
 		{
@@ -59,7 +61,7 @@ namespace DyeHard.Dyes.LivingFlame
 			}
 		}
 	}
-	
+
 	public class GreenLivingFlameDye : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -73,6 +75,7 @@ namespace DyeHard.Dyes.LivingFlame
 			item.maxStack = 99;
 			item.value = Item.sellPrice(0, 1, 50, 0);
 			item.rare = 3;
+			item.dye = 66;
 		}
 		public override void AddRecipes()
 		{
@@ -87,7 +90,7 @@ namespace DyeHard.Dyes.LivingFlame
 			}
 		}
 	}
-	
+
 	public class VioletLivingGradientDye : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -101,6 +104,7 @@ namespace DyeHard.Dyes.LivingFlame
 			item.maxStack = 99;
 			item.value = Item.sellPrice(0, 1, 50, 0);
 			item.rare = 3;
+			item.dye = 72;
 		}
 		public override void AddRecipes()
 		{
@@ -115,7 +119,7 @@ namespace DyeHard.Dyes.LivingFlame
 			}
 		}
 	}
-	
+
 	public class YellowLivingGradientDye : ModItem
 	{
 		public override void SetStaticDefaults()
@@ -129,6 +133,7 @@ namespace DyeHard.Dyes.LivingFlame
 			item.maxStack = 99;
 			item.value = Item.sellPrice(0, 1, 50, 0);
 			item.rare = 3;
+			item.dye = 70;
 		}
 		public override void AddRecipes()
 		{
