@@ -12,14 +12,14 @@ namespace DyeHard.Shaders
 
 		public DyeHardShader() { }
 
-        public DyeHardShader(string name, string passName)
-        {
-            _name = name;
-            PassName = passName;
-            UseImage("Images/Misc/noise");
-        }
+		public DyeHardShader(string name, string passName)
+		{
+			_name = name;
+			PassName = passName;
+			UseImage("Images/Misc/noise");
+		}
 
-        public DyeHardShader(string name, string passName, Vector3 p)
+		public DyeHardShader(string name, string passName, Vector3 p)
 		{
 			_name = name;
 			PassName = passName;

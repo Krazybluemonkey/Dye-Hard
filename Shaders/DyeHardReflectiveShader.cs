@@ -6,59 +6,59 @@ using ShaderLib;
 namespace DyeHard.Shaders
 {
 	public class DyeHardReflectiveShader : ModArmorShaderData
-    {
+	{
 		bool isRainbow = false;
-        public override bool Autoload() => false;
+		public override bool Autoload() => false;
 
-        private string _name;
-        public override string Name => _name;
+		private string _name;
+		public override string Name => _name;
 
-        public DyeHardReflectiveShader() { }
+		public DyeHardReflectiveShader() { }
 
 		public DyeHardReflectiveShader(string name, string passName, bool rain)
-        {
+		{
 			_name = name;
 			PassName = passName;
 			UseImage("Images/Misc/noise");
 			isRainbow = rain;
-        }
+		}
 		
-        public DyeHardReflectiveShader(string name, string passName, float sat, bool rain)
-        {
+		public DyeHardReflectiveShader(string name, string passName, float sat, bool rain)
+		{
 			_name = name;
 			PassName = passName;
 			UseImage("Images/Misc/noise");
 			UseSaturation(sat);
 			isRainbow = rain;
-        }
+		}
 		
 		public DyeHardReflectiveShader(string name, string passName, Vector3 p, bool rain)
-        {
+		{
 			_name = name;
 			PassName = passName;
 			UseImage("Images/Misc/noise");
 			UseColor(p);
 			isRainbow = rain;
-        }
+		}
 		
-        public DyeHardReflectiveShader(string name, string passName, Vector3 p, float sat, bool rain)
-        {
+		public DyeHardReflectiveShader(string name, string passName, Vector3 p, float sat, bool rain)
+		{
 			_name = name;
 			PassName = passName;
 			UseImage("Images/Misc/noise");
 			UseColor(p);
 			UseSaturation(sat);
 			isRainbow = rain;
-        }
+		}
 		
 		public override void PreApply(Entity e, DrawData? drawData)
-        {
-            if (isRainbow)
-            {
-                Vector3 f = new Vector3(((float)Main.DiscoR / 255) + 0.3f, ((float)Main.DiscoG / 255) + 0.3f, ((float)Main.DiscoB / 255) + 0.3f);
+		{
+			if (isRainbow)
+			{
+				Vector3 f = new Vector3(((float)Main.DiscoR / 255) + 0.3f, ((float)Main.DiscoG / 255) + 0.3f, ((float)Main.DiscoB / 255) + 0.3f);
 				UseColor(f);
-            }
-        }
+			}
+		}
 		
 		public override void Apply(Entity entity, DrawData? drawData)
 		{
