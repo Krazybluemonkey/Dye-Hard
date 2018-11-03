@@ -22,9 +22,9 @@ namespace DyeHard.Dyes.Player
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 99;
-			item.value = Item.sellPrice(0, 0, 75, 0);
+			item.value = Item.sellPrice(0, 0, 20, 0);
 			item.color = Main.player[Main.myPlayer].hairColor;
-			item.rare = 2;
+			item.rare = 0;
 			item.dye = 54;
 		}
 	}
@@ -47,9 +47,9 @@ namespace DyeHard.Dyes.Player
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 99;
-			item.value = Item.sellPrice(0, 0, 75, 0);
+			item.value = Item.sellPrice(0, 0, 20, 0);
 			item.color = Main.player[Main.myPlayer].eyeColor;
-			item.rare = 2;
+			item.rare = 0;
 			item.dye = 54;
 		}
 	}
@@ -72,9 +72,9 @@ namespace DyeHard.Dyes.Player
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 99;
-			item.value = Item.sellPrice(0, 0, 75, 0);
+			item.value = Item.sellPrice(0, 0, 20, 0);
 			item.color = Main.player[Main.myPlayer].skinColor;
-			item.rare = 2;
+			item.rare = 0;
 			item.dye = 54;
 		}
 	}
@@ -97,9 +97,9 @@ namespace DyeHard.Dyes.Player
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 99;
-			item.value = Item.sellPrice(0, 0, 75, 0);
+			item.value = Item.sellPrice(0, 0, 20, 0);
 			item.color = Main.player[Main.myPlayer].shirtColor;
-			item.rare = 2;
+			item.rare = 0;
 			item.dye = 54;
 		}
 	}
@@ -122,9 +122,9 @@ namespace DyeHard.Dyes.Player
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 99;
-			item.value = Item.sellPrice(0, 0, 75, 0);
+			item.value = Item.sellPrice(0, 0, 20, 0);
 			item.color = Main.player[Main.myPlayer].underShirtColor;
-			item.rare = 2;
+			item.rare = 0;
 			item.dye = 54;
 		}
 	}
@@ -147,9 +147,9 @@ namespace DyeHard.Dyes.Player
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 99;
-			item.value = Item.sellPrice(0, 0, 75, 0);
+			item.value = Item.sellPrice(0, 0, 20, 0);
 			item.color = Main.player[Main.myPlayer].pantsColor;
-			item.rare = 2;
+			item.rare = 0;
 			item.dye = 54;
 		}
 	}
@@ -172,9 +172,9 @@ namespace DyeHard.Dyes.Player
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 99;
-			item.value = Item.sellPrice(0, 0, 75, 0);
+			item.value = Item.sellPrice(0, 0, 20, 0);
 			item.color = Main.player[Main.myPlayer].shoeColor;
-			item.rare = 2;
+			item.rare = 0;
 			item.dye = 54;
 		}
 	}
