@@ -1,2 +1,2 @@
 Dye Hard is a mod aiming to expand on the default dyes by adding a plethora of colors to most of the base dyes.
-for visual examples and more info, visit the homepage. **requires Shader Library v2.0.2**
+for visual examples and more info, visit the homepage. **requires Shader Library v2.1.2**

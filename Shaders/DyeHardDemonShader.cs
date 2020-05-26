@@ -42,47 +42,42 @@ namespace DyeHard.Shaders
 		public override void PreApply(Entity e, DrawData? drawData)
 		{
 			Vector3 newVector = new Vector3(0f, 0f, 0f);
-			//demon flame dye
-			if (DemonShader == 0)
-			{
-				newVector = new Vector3(0.5f * Main.demonTorch + 1f * (1f - Main.demonTorch), 0.3f, 1f * Main.demonTorch + 0.5f * (1f - Main.demonTorch));
-				UseColor(newVector);
-				if (UseSecond)
-				{
-					UseSecondaryColor(newVector);
-				}
-			}
-			//crystal shine dye
-			if (DemonShader == 1)
-			{
-				Color color = Main.hslToRgb(Main.demonTorch * 0.12f + 0.69f, 1f, 0.75f);
-				newVector = color.ToVector3() * 1.2f;
-				UseColor(newVector);
-				if (UseSecond)
-				{
-					UseSecondaryColor(newVector);
-				}
-			}
-			//star light dye
-			if (DemonShader == 2)
-			{
-				newVector = new Vector3(0.9f - (Main.demonTorch * 0.2f), 0.9f - (Main.demonTorch * 0.2f), 0.7f + (Main.demonTorch * 0.2f));
-				UseColor(newVector);
-				if (UseSecond)
-				{
-					UseSecondaryColor(newVector);
-				}
-			}
-			//determined heart dye
-			if (DemonShader == 3)
-			{
-				newVector = new Vector3(1f - (Main.demonTorch * 0.1f), 0.3f - (Main.demonTorch * 0.2f), 0.5f + (Main.demonTorch * 0.2f));
-				UseColor(newVector);
-				if (UseSecond)
-				{
-					UseSecondaryColor(newVector);
-				}
-			}
+            switch (DemonShader)
+            {
+                case 0://demon flame dye
+                    newVector = new Vector3(0.5f * Main.demonTorch + 1f * (1f - Main.demonTorch), 0.3f, 1f * Main.demonTorch + 0.5f * (1f - Main.demonTorch));
+                    UseColor(newVector);
+                    if (UseSecond)
+                    {
+                        UseSecondaryColor(newVector);
+                    }
+                    break;
+                case 1://crystal shine dye
+                    Color color = Main.hslToRgb(Main.demonTorch * 0.12f + 0.69f, 1f, 0.75f);
+                    newVector = color.ToVector3() * 1.2f;
+                    UseColor(newVector);
+                    if (UseSecond)
+                    {
+                        UseSecondaryColor(newVector);
+                    }
+                    break;
+                case 2://star light dye
+                    newVector = new Vector3(0.9f - (Main.demonTorch * 0.2f), 0.9f - (Main.demonTorch * 0.2f), 0.7f + (Main.demonTorch * 0.2f));
+                    UseColor(newVector);
+                    if (UseSecond)
+                    {
+                        UseSecondaryColor(newVector);
+                    }
+                    break;
+                case 3://determined heart dye
+                    newVector = new Vector3(1f - (Main.demonTorch * 0.1f), 0.3f - (Main.demonTorch * 0.2f), 0.5f + (Main.demonTorch * 0.2f));
+                    UseColor(newVector);
+                    if (UseSecond)
+                    {
+                        UseSecondaryColor(newVector);
+                    }
+                    break;
+            }
 		}
 	}
 }

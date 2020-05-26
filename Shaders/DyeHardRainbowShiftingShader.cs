@@ -115,7 +115,7 @@ namespace DyeHard.Shaders
 			}
 
 			//special dye with rainbow, unused
-			if (RainbowStyle == 2)
+			if (RainbowStyle == 2)//life
 			{
 				Player player = e as Player;
 				if (player == null) return;
@@ -141,7 +141,7 @@ namespace DyeHard.Shaders
 				f = newColor;
 			}
 
-			if (RainbowStyle == 3)
+			if (RainbowStyle == 3)//mana
 			{
 				Player player = e as Player;
 				if (player == null) return;
@@ -167,43 +167,7 @@ namespace DyeHard.Shaders
 				f = newColor;
 			}
 
-			if (RainbowStyle == 4)
-			{
-				Player player = e as Player;
-				if (player == null) return;
-				f = Main.DiscoColor;
-				if (!Main.gameMenu && !Main.gamePaused)
-				{
-					if (Main.rand.Next(45) == 0)
-					{
-						int type = Main.rand.Next(139, 143);
-						int num5 = Dust.NewDust(player.position, player.width, 8, type, 0f, 0f, 0, default(Color), 1.2f);
-						Main.dust[num5].velocity.X *= 1f + (float)Main.rand.Next(-50, 51) * 0.01f;
-						Main.dust[num5].velocity.Y *= 1f + (float)Main.rand.Next(-50, 51) * 0.01f;
-						Main.dust[num5].velocity.X += (float)Main.rand.Next(-50, 51) * 0.01f;
-						Main.dust[num5].velocity.Y += (float)Main.rand.Next(-50, 51) * 0.01f;
-						Main.dust[num5].velocity.Y -= 1f;
-						Main.dust[num5].scale *= 0.7f + (float)Main.rand.Next(-30, 31) * 0.01f;
-						Dust obj = Main.dust[num5];
-						obj.velocity += player.velocity * 0.2f;
-					}
-					if (Main.rand.Next(225) == 0)
-					{
-						int type2 = Main.rand.Next(276, 283);
-						int num6 = Gore.NewGore(new Vector2(player.position.X + (float)Main.rand.Next(player.width), player.position.Y + (float)Main.rand.Next(8)), player.velocity, type2, 1f);
-						Main.gore[num6].velocity.X *= 1f + (float)Main.rand.Next(-50, 51) * 0.01f;
-						Main.gore[num6].velocity.Y *= 1f + (float)Main.rand.Next(-50, 51) * 0.01f;
-						Main.gore[num6].scale *= 1f + (float)Main.rand.Next(-20, 21) * 0.01f;
-						Main.gore[num6].velocity.X += (float)Main.rand.Next(-50, 51) * 0.01f;
-						Main.gore[num6].velocity.Y += (float)Main.rand.Next(-50, 51) * 0.01f;
-						Main.gore[num6].velocity.Y -= 1f;
-						Gore obj2 = Main.gore[num6];
-						obj2.velocity += player.velocity * 0.2f;
-					}
-				}
-			}
-
-			if (RainbowStyle == 5)
+			if (RainbowStyle == 4)//speed
 			{
 				Player player = e as Player;
 				if (player == null) return;
@@ -223,14 +187,13 @@ namespace DyeHard.Shaders
 				newColor.B = (byte)(Main.DiscoB * num3 + 255 * num4);
 				f = newColor;
 			}
-			/*was going to use for wisp, may still..
-			if (RainbowStyle == 6)
+			//was going to use for wisp, may still..
+			if (RainbowStyle == 5)
 			{
 				IsS = true;
 				f = Main.DiscoColor;
-				s = new Color(Main.DiscoR - 38, Main.DiscoG - 38, Main.DiscoB - 38);
+				s = new Color(Main.DiscoR - 160, Main.DiscoG - 160, Main.DiscoB - 160);
 			}
-			*/
 			if (ColorStyle == 1) //bright
 			{
 				f = new Color(f.R / 2 + 127, f.G / 2 + 127, f.B / 2 + 127);

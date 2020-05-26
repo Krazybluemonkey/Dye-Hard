@@ -4,20 +4,31 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using ShaderLib;
 using DyeHard.Shaders;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.Graphics.Shaders;
 
 namespace DyeHard
 {
 	class DyeHard : Mod
 	{
-		public override void Load()
+		public static Effect DyeHardEffect;
+
+        public static DyeHard instance;
+
+        public override void Load()
 		{
-			ShaderLoader.RegisterMod(this);
-			Config.Load();
+            ShaderLoader.RegisterMod(this);
 			if (Main.netMode != NetmodeID.Server)
 			{
-				//- colored -//
-				
-				ShaderLoader.AddModArmorShaderData(new DyeHardShader("CottonCandyBlue", "ArmorColored", new Vector3(0.34f, 0.72f, 1f), 1.2f), this, ItemType("CottonCandyBlueDye"));
+				DyeHardEffect = GetEffect("Effects/DyeHardEffect");
+				Ref<Effect> DyeHardEffectRef = new Ref<Effect>();
+				DyeHardEffectRef.Value = DyeHardEffect;
+
+                //- dummies -//
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("DummyNumber1", "ArmorModMartian", DyeHardEffect, new Vector3(0.6f, 0.6f, 0.6f)), this, ItemType("DummyDyeNumber1"));
+
+                //- colored -//
+                ShaderLoader.AddModArmorShaderData(new DyeHardShader("CottonCandyBlue", "ArmorColored", new Vector3(0.34f, 0.72f, 1f), 1.2f), this, ItemType("CottonCandyBlueDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("CottonCandyPink", "ArmorColored", new Vector3(1f, 0.55f, 0.8f), 1.3f), this, ItemType("CottonCandyPinkDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("RottenBrown", "ArmorColored", new Vector3(0.62f, 0.35f, 0.40f)), this, ItemType("RottenBrownDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("RottenGreen", "ArmorColored", new Vector3(0.58f, 0.63f, 0.13f), 1.2f), this, ItemType("RottenGreenDye"));
@@ -163,7 +174,6 @@ namespace DyeHard
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("IntensePurple", "ArmorBrightnessColored", new Vector3(0.5f, 0f, 1f)), this, ItemType("IntensePurpleDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("IntenseViolet", "ArmorBrightnessColored", new Vector3(1f, 0f, 1f)), this, ItemType("IntenseVioletDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("IntensePink", "ArmorBrightnessColored", new Vector3(1f, 0.1f, 0.5f)), this, ItemType("IntensePinkDye"));
-				//ShaderLoader.AddModArmorShaderData(new DyeHardShader("DummyNumber1", "ArmorColored"), this, ItemType("DummyDyeNumber1"));//used to reset the vanilla dye limit, nothing more.
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("IntenseBrown", "ArmorBrightnessColored", new Vector3(0.4f, 0.2f, 0f)), this, ItemType("IntenseBrownDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("IntenseBlack", "ArmorBrightnessColored", new Vector3(0.2f, 0.2f, 0.2f)), this, ItemType("IntenseBlackDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("IntenseSilver", "ArmorBrightnessColored", new Vector3(2f, 2f, 2f)), this, ItemType("IntenseSilverDye"));
@@ -258,8 +268,23 @@ namespace DyeHard
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("YellowLivingGradient", "ArmorLivingFlame", new Vector3(0.2f, 1f, 0f), new Vector3(0.9f, 0.5f, 0f)), this, ItemType("YellowLivingGradientDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("CyanLivingGradient", "ArmorLivingFlame", new Vector3(0f, 1f, 0.2f), new Vector3(0f, 0.5f, 0.9f)), this, ItemType("CyanLivingGradientDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("VioletLivingGradient", "ArmorLivingFlame", new Vector3(1f, 0f, 0.2f), new Vector3(0.5f, 0f, 0.9f)), this, ItemType("VioletLivingGradientDye"));
-				//- wisp -//
-				ShaderLoader.AddModArmorShaderData(new DyeHardShader("Spirit", "ArmorWisp", new Vector3(0.76f, 0.96f, 1f), new Vector3(0.13f, 0.78f, 0.99f)), this, ItemType("SpiritDye"));
+                //- martian -//
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("RedMartian", "ArmorModMartian", DyeHardEffect, new Vector3(3f, 0f, 0f)), this, ItemType("RedMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("OrangeMartian", "ArmorModMartian", DyeHardEffect, new Vector3(3f, 2f, 0f)), this, ItemType("OrangeMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("YellowMartian", "ArmorModMartian", DyeHardEffect, new Vector3(3f, 3f, 0f)), this, ItemType("YellowMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("LimeeMartian", "ArmorModMartian", DyeHardEffect, new Vector3(2f, 3f, 0f)), this, ItemType("LimeMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("GreenMartian", "ArmorModMartian", DyeHardEffect, new Vector3(0f, 3f, 0f)), this, ItemType("GreenMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("TealMartian", "ArmorModMartian", DyeHardEffect, new Vector3(0f, 3f, 2f)), this, ItemType("TealMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("CyanMartian", "ArmorModMartian", DyeHardEffect, new Vector3(0f, 3f, 3f)), this, ItemType("CyanMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("SkyBlueMartian", "ArmorModMartian", DyeHardEffect, new Vector3(1f, 2f, 3f)), this, ItemType("SkyBlueMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("BlueMartian", "ArmorModMartian", DyeHardEffect, new Vector3(3f, 0f, 0f)), this, ItemType("BlueMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("PurpleeMartian", "ArmorModMartian", DyeHardEffect, new Vector3(2f, 0f, 3f)), this, ItemType("PurpleMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("VioletMartian", "ArmorModMartian", DyeHardEffect, new Vector3(3f, 0f, 3f)), this, ItemType("VioletMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("PinkMartian", "ArmorModMartian", DyeHardEffect, new Vector3(3f, 0.5f, 2f)), this, ItemType("PinkMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("BlackMartian", "ArmorModMartian", DyeHardEffect, new Vector3(2.2f, 2.2f, 2.2f)), this, ItemType("BlackMartianDye"));
+                //ShaderLoader.AddModArmorShaderData(new DyeHardShader("SilverMartian", "ArmorModMartian", DyeHardEffect, new Vector3(3f, 3f, 3f)), this, ItemType("SilverMartianDye"));
+                //- wisp -//
+                ShaderLoader.AddModArmorShaderData(new DyeHardShader("Spirit", "ArmorWisp", new Vector3(0.76f, 0.96f, 1f), new Vector3(0.13f, 0.78f, 0.99f)), this, ItemType("SpiritDye"));
 				//- highcontrastglow -//
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("RedHighlight", "ArmorHighContrastGlow", new Vector3(1f, 0f, 0f)), this, ItemType("RedHighlightDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardShader("OrangeHighlight", "ArmorHighContrastGlow", new Vector3(1f, 0.5f, 0f)), this, ItemType("OrangeHighlightDye"));
@@ -523,7 +548,7 @@ namespace DyeHard
 				ShaderLoader.AddModArmorShaderData(new DyeHardSpecialShader("Mana", "ArmorColored", 1.2f, 1), this, ItemType("ManaDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardSpecialShader("GreenMana", "ArmorColored", new Vector3(0.7f, 1f, 0.8f), 1.2f, 1), this, ItemType("GreenManaDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardSpecialShader("RedMana", "ArmorColored", new Vector3(1f, 0.8f, 0.7f), 1.2f, 1), this, ItemType("RedManaDye"));
-				ShaderLoader.AddModArmorShaderData(new DyeHardSpecialShader("Money", "ArmorColored", 1.2f, 3), this, ItemType("MoneyDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardSpecialShader("Riches", "ArmorColored", 1.2f, 3), this, ItemType("RichesDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardSpecialShader("Speed", "ArmorColored", new Vector3(0.6f, 0.6f, 0.6f), 1.2f, 7), this, ItemType("SpeedDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardSpecialShader("Time", "ArmorColored", 1.2f, 4), this, ItemType("TimeDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardDemonShader("DemonFire", "ArmorColored", 1.2f, 0, false), this, ItemType("DemonFireDye"));
@@ -531,14 +556,95 @@ namespace DyeHard
 				ShaderLoader.AddModArmorShaderData(new DyeHardDemonShader("StarLight", "ArmorColored", 1.2f, 2, false), this, ItemType("StarLightDye"));
 				ShaderLoader.AddModArmorShaderData(new DyeHardDemonShader("DeterminedHeart", "ArmorColored", 1.2f, 3, false), this, ItemType("DeterminedHeartDye"));
 				//- player -//
-				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarHair", "ArmorColored", 1.2f, 0), this, ItemType("FamiliarDyeHair"));
-				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarEye", "ArmorColored", 1.2f, 1), this, ItemType("FamiliarDyeEye"));
-				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarSkin", "ArmorColored", 1.2f, 2), this, ItemType("FamiliarDyeSkin"));
-				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarShirt", "ArmorColored", 1.2f, 3), this, ItemType("FamiliarDyeShirt"));
-				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarUndershirt", "ArmorColored", 1.2f, 4), this, ItemType("FamiliarDyeUndershirt"));
-				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarPants", "ArmorColored", 1.2f, 5), this, ItemType("FamiliarDyePants"));
-				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarShoe", "ArmorColored", 1.2f, 6), this, ItemType("FamiliarDyeShoe"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarHair", "ArmorColored", 1.2f, 0, 0), this, ItemType("FamiliarDyeHair"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarEye", "ArmorColored", 1.2f, 1, 0), this, ItemType("FamiliarDyeEye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarSkin", "ArmorColored", 1.2f, 2, 0), this, ItemType("FamiliarDyeSkin"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarShirt", "ArmorColored", 1.2f, 3, 0), this, ItemType("FamiliarDyeShirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarUndershirt", "ArmorColored", 1.2f, 4, 0), this, ItemType("FamiliarDyeUndershirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarPants", "ArmorColored", 1.2f, 5, 0), this, ItemType("FamiliarDyePants"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarShoe", "ArmorColored", 1.2f, 6, 0), this, ItemType("FamiliarDyeShoe"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("BrightFamiliarHair", "ArmorColored", 1.2f, 0, 1), this, ItemType("BrightFamiliarDyeHair"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("BrightFamiliarEye", "ArmorColored", 1.2f, 1, 1), this, ItemType("BrightFamiliarDyeEye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("BrightFamiliarSkin", "ArmorColored", 1.2f, 2, 1), this, ItemType("BrightFamiliarDyeSkin"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("BrightFamiliarShirt", "ArmorColored", 1.2f, 3, 1), this, ItemType("BrightFamiliarDyeShirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("BrightFamiliarUndershirt", "ArmorColored", 1.2f, 4, 1), this, ItemType("BrightFamiliarDyeUndershirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("BrightFamiliarPants", "ArmorColored", 1.2f, 5, 1), this, ItemType("BrightFamiliarDyePants"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("BrightFamiliarShoe", "ArmorColored", 1.2f, 6, 1), this, ItemType("BrightFamiliarDyeShoe"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("DimFamiliarHair", "ArmorColored", 1.2f, 0, 2), this, ItemType("DimFamiliarDyeHair"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("DimFamiliarEye", "ArmorColored", 1.2f, 1, 2), this, ItemType("DimFamiliarDyeEye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("DimFamiliarSkin", "ArmorColored", 1.2f, 2, 2), this, ItemType("DimFamiliarDyeSkin"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("DimFamiliarShirt", "ArmorColored", 1.2f, 3, 2), this, ItemType("DimFamiliarDyeShirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("DimFamiliarUndershirt", "ArmorColored", 1.2f, 4, 2), this, ItemType("DimFamiliarDyeUndershirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("DimFamiliarPants", "ArmorColored", 1.2f, 5, 2), this, ItemType("DimFamiliarDyePants"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("DimFamiliarShoe", "ArmorColored", 1.2f, 6, 2), this, ItemType("DimFamiliarDyeShoe"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandBlackHair", "ArmorColoredAndBlack", 1.2f, 0, 0), this, ItemType("FamiliarandBlackDyeHair"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandBlackEye", "ArmorColoredAndBlack", 1.2f, 1, 0), this, ItemType("FamiliarandBlackDyeEye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandBlackSkin", "ArmorColoredAndBlack", 1.2f, 2, 0), this, ItemType("FamiliarandBlackDyeSkin"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandBlackShirt", "ArmorColoredAndBlack", 1.2f, 3, 0), this, ItemType("FamiliarandBlackDyeShirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandBlackUndershirt", "ArmorColoredAndBlack", 1.2f, 4, 0), this, ItemType("FamiliarandBlackDyeUndershirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandBlackPants", "ArmorColoredAndBlack", 1.2f, 5, 0), this, ItemType("FamiliarandBlackDyePants"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandBlackShoe", "ArmorColoredAndBlack", 1.2f, 6, 0), this, ItemType("FamiliarandBlackDyeShoe"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandSilverHair", "ArmorColoredAndSilverTrim", 1.2f, 0, 0), this, ItemType("FamiliarandSilverDyeHair"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandSilverEye", "ArmorColoredAndSilverTrim", 1.2f, 1, 0), this, ItemType("FamiliarandSilverDyeEye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandSilverSkin", "ArmorColoredAndSilverTrim", 1.2f, 2, 0), this, ItemType("FamiliarandSilverDyeSkin"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandSilverShirt", "ArmorColoredAndSilverTrim", 1.2f, 3, 0), this, ItemType("FamiliarandSilverDyeShirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandSilverUndershirt", "ArmorColoredAndSilverTrim", 1.2f, 4, 0), this, ItemType("FamiliarandSilverDyeUndershirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandSilverPants", "ArmorColoredAndSilverTrim", 1.2f, 5, 0), this, ItemType("FamiliarandSilverDyePants"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarandSilverShoe", "ArmorColoredAndSilverTrim", 1.2f, 6, 0), this, ItemType("FamiliarandSilverDyeShoe"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("IntenseFamiliarHair", "ArmorBrightnessColored", 1.2f, 0, 0), this, ItemType("IntenseFamiliarDyeHair"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("IntenseFamiliarEye", "ArmorBrightnessColored", 1.2f, 1, 0), this, ItemType("IntenseFamiliarDyeEye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("IntenseFamiliarSkin", "ArmorBrightnessColored", 1.2f, 2, 0), this, ItemType("IntenseFamiliarDyeSkin"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("IntenseFamiliarShirt", "ArmorBrightnessColored", 1.2f, 3, 0), this, ItemType("IntenseFamiliarDyeShirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("IntenseFamiliarUndershirt", "ArmorBrightnessColored", 1.2f, 4, 0), this, ItemType("IntenseFamiliarDyeUndershirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("IntenseFamiliarPants", "ArmorBrightnessColored", 1.2f, 5, 0), this, ItemType("IntenseFamiliarDyePants"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("IntenseFamiliarShoe", "ArmorBrightnessColored", 1.2f, 6, 0), this, ItemType("IntenseFamiliarDyeShoe"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarFlameShirt", "ArmorColoredGradient", 1.35f, 7, 0, true), this, ItemType("FamiliarFlameDyeShirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarFlamePants", "ArmorColoredGradient", 1.35f, 8, 0, true), this, ItemType("FamiliarFlameDyePants"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarFlameandBlackShirt", "ArmorColoredAndBlackGradient", 1.35f, 7, 0, true), this, ItemType("FamiliarFlameandBlackDyeShirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarFlameandBlackPants", "ArmorColoredAndBlackGradient", 1.35f, 8, 0, true), this, ItemType("FamiliarFlameandBlackDyePants"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarFlameandSilverShirt", "ArmorColoredAndSilverTrimGradient", 1.35f, 7, 0, true), this, ItemType("FamiliarFlameandSilverDyeShirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("FamiliarFlameandSilverPants", "ArmorColoredAndSilverTrimGradient", 1.35f, 8, 0, true), this, ItemType("FamiliarFlameandSilverDyePants"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("IntenseFamiliarFlameShirt", "ArmorBrightnessGradient", 1.35f, 7, 0, true), this, ItemType("IntenseFamiliarFlameDyeShirt"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardPlayerShader("IntenseFamiliarFlamePants", "ArmorBrightnessGradient", 1.35f, 8, 0, true), this, ItemType("IntenseFamiliarFlameDyePants"));
+				//- original -//
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("SepiaTone", "ArmorSepiaTone", DyeHardEffect), this, ItemType("SepiaToneDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("GrayScale", "ArmorGrayScale", DyeHardEffect), this, ItemType("GrayScaleDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("Posterize", "ArmorPosterize", DyeHardEffect, new Vector3(3.0f, 0.75f, 0f)), this, ItemType("PosterizeDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("Determination", "ArmorDetermination", DyeHardEffect, new Vector3(1f, 1f, 1f), new Vector3(0f, 0f, 0f)), this, ItemType("DeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("RedDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(1f, 0f, 0f), new Vector3(0f, 0f, 0f)), this, ItemType("RedDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("OrangeDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(1f, 0.5f, 0f), new Vector3(0f, 0f, 0f)), this, ItemType("OrangeDeterminationDye"));
+                ShaderLoader.AddModArmorShaderData(new DyeHardShader("YellowDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(1f, 1f, 0f), new Vector3(0f, 0f, 0f)), this, ItemType("YellowDeterminationDye"));
+                ShaderLoader.AddModArmorShaderData(new DyeHardShader("LimeDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0.5f, 1f, 0f), new Vector3(0f, 0f, 0f)), this, ItemType("LimeDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("GreenDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 1f, 0f), new Vector3(0f, 0f, 0f)), this, ItemType("GreenDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("TealDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 1f, 0.5f), new Vector3(0f, 0f, 0f)), this, ItemType("TealDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("CyanDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 1f, 1f), new Vector3(0f, 0f, 0f)), this, ItemType("CyanDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("SkyBlueDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0.2f, 0.5f, 1f), new Vector3(0f, 0f, 0f)), this, ItemType("SkyBlueDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("BlueDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 1f), new Vector3(0f, 0f, 0f)), this, ItemType("BlueDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("PurpleDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0.5f, 0f, 1f), new Vector3(0f, 0f, 0f)), this, ItemType("PurpleDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("VioletDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(1f, 0f, 1f), new Vector3(0f, 0f, 0f)), this, ItemType("VioletDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("PinkDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(1f, 0.1f, 0.5f), new Vector3(0f, 0f, 0f)), this, ItemType("PinkDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("BrownDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0.4f, 0.2f, 0f), new Vector3(0f, 0f, 0f)), this, ItemType("BrownDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(1f, 1f, 1f)), this, ItemType("InverseDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseRedDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(1f, 0f, 0f)), this, ItemType("InverseRedDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseOrangeDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(1f, 0.5f, 0f)), this, ItemType("InverseOrangeDeterminationDye"));
+                ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseYellowDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(1f, 1f, 0f)), this, ItemType("InverseYellowDeterminationDye"));
+                ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseLimeDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(0.5f, 1f, 0f)), this, ItemType("InverseLimeDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseGreenDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(0f, 1f, 0f)), this, ItemType("InverseGreenDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseTealDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(0f, 1f, 0.5f)), this, ItemType("InverseTealDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseCyanDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(0f, 1f, 1f)), this, ItemType("InverseCyanDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseSkyBlueDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(0.2f, 0.5f, 1f)), this, ItemType("InverseSkyBlueDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseBlueDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 1f)), this, ItemType("InverseBlueDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InversePurpleDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(0.5f, 0f, 1f)), this, ItemType("InversePurpleDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseVioletDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(1f, 0f, 1f)), this, ItemType("InverseVioletDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InversePinkDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(1f, 0.1f, 0.5f)), this, ItemType("InversePinkDeterminationDye"));
+				ShaderLoader.AddModArmorShaderData(new DyeHardShader("InverseBrownDetermination", "ArmorDetermination", DyeHardEffect, new Vector3(0f, 0f, 0f), new Vector3(0.4f, 0.2f, 0f)), this, ItemType("InverseBrownDeterminationDye"));
 			}
-		}
-	}
+            instance = this;
+        }
+
+        public override void Unload()
+        {
+            instance = null;
+        }
+    }
 }

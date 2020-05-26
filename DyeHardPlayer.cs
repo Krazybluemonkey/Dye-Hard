@@ -37,12 +37,17 @@ namespace DyeHard
 					playerCoin += Main.player[Main.myPlayer].inventory[l].stack * 1000000;
 				}
 			}
-			if (NPC.downedMoonlord)
+            dyeItemIDsPool.Add(mod.ItemType("SepiaToneDye"));
+            dyeItemIDsPool.Add(mod.ItemType("GrayScaleDye"));
+            dyeItemIDsPool.Add(mod.ItemType("PosterizeDye"));
+			dyeItemIDsPool.Add(mod.ItemType("DeterminationDye"));
+            if (NPC.downedMoonlord)
 			{
 				dyeItemIDsPool.Add(mod.ItemType("QuinesMiasma"));
 			}
-			if (Config.DyeAcquisition == "both" || Config.DyeAcquisition == "reward")
-			{
+            var config = ModContent.GetInstance<DyeHardConfig>();
+            if (config.DyeAcquisition == OptionsEnum.Reward || config.DyeAcquisition == OptionsEnum.Both)
+            {
 				dyeItemIDsPool.Add(mod.ItemType("LightDye"));
 				//acid
 				dyeItemIDsPool.Add(mod.ItemType("BlackAcidDye"));
@@ -122,11 +127,6 @@ namespace DyeHard
 				if (Main.moonPhase % 2 == 0 && Main.dayTime || Main.moonPhase % 2 == 1 && !Main.dayTime)
 				{
 					dyeItemIDsPool.Add(mod.ItemType("TimeDye"));
-				}
-				if (NPC.AnyNPCs(208))
-				{
-					dyeItemIDsPool.Add(mod.ItemType("PartyDye"));
-					dyeItemIDsPool.Add(mod.ItemType("CottonCandyPartyDye"));
 				}
 				if (Main.hardMode)
 				{
